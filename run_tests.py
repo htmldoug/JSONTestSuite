@@ -201,6 +201,21 @@ programs = {
            "url":"",
            "commands":[os.path.join(PARSERS_DIR, "test_Freddy_2_1_0/bin/test_Freddy_2_1_0")]
        },
+   "Scala ujson 0.6.6 (NoOpVisitor)":
+       {
+           "url":"https://github.com/lihaoyi/upickle",
+           "commands":["/usr/bin/java", "-jar", os.path.join(PARSERS_DIR, "test_scala_ujson_0_6_6/TestJSONParsing.jar")]
+       },
+   "Scala ujson 0.6.6 (JS visitor)":
+       {
+           "url":"https://github.com/lihaoyi/upickle",
+           "commands":["/usr/bin/java", "-Dvisitor=js", "-jar", os.path.join(PARSERS_DIR, "test_scala_ujson_0_6_6/TestJSONParsing.jar")]
+       },
+   "Scala ujson 0.6.6 (StringRenderer)":
+       {
+           "url":"https://github.com/lihaoyi/upickle",
+           "commands":["/usr/bin/java", "-Dvisitor=string", "-jar", os.path.join(PARSERS_DIR, "test_scala_ujson_0_6_6/TestJSONParsing.jar")]
+       },
    "Swift Freddy 20160830":
        {
            "url":"",
@@ -860,7 +875,7 @@ if __name__ == '__main__':
 
     #args.restrict_to_program = ["C cJSON 20160806", "C cJSON 1.7.3"]
     
-    #run_tests(args.restrict_to_path, args.restrict_to_program)
+    run_tests(args.restrict_to_path, args.restrict_to_program)
 
     generate_report(os.path.join(BASE_DIR, "results/parsing.html"), keep_only_first_result_in_set = False)
     generate_report(os.path.join(BASE_DIR, "results/parsing_pruned.html"), keep_only_first_result_in_set = True)
